@@ -27,6 +27,21 @@ findstr "366667" out.txt || goto :test_fail_print
 type out.txt
 echo Successfull!!
 
+echo Node NAPI Tests
+set "LOADER_SCRIPT_PATH=%loc%\node_napi"
+
+echo Npm Install rspack Test
+call metacall npm install --prefix="%loc%\node_napi" @rspack/core@1.7.9
+if %errorlevel%==1 goto :test_fail
+echo Successfull!!
+
+echo Node NAPI rspack Test
+type "%loc%\node_napi\commands.txt" | metacall ^> out.txt
+if %errorlevel%==1 goto :test_fail
+findstr "rspack" out.txt || goto :test_fail_print
+type out.txt
+echo Successfull!!
+
 echo Python Tests
 set "LOADER_SCRIPT_PATH=%loc%\python"
 
