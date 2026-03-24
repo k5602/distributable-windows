@@ -30,10 +30,8 @@ echo Successfull!!
 echo Node NAPI Tests
 set "LOADER_SCRIPT_PATH=%loc%\node_napi"
 
-rem TODO: NAPI native addon support - napi_* symbols not re-exported by MetaCall's node.dll
-rem TODO: https://github.com/metacall/distributable-windows/issues/
 echo Npm Install rspack Test
-call metacall npm install --prefix="%loc%\node_napi" @rspack/core
+call metacall npm install --prefix="%loc%\node_napi" @rspack/core@1.7.9
 if %errorlevel%==1 goto :test_fail
 echo Successfull!!
 
