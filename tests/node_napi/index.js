@@ -22,10 +22,7 @@
 
 // Regression test for MetaCall NAPI native addon support.
 // @rspack/core depends on @rspack/binding, a Rust-compiled NAPI addon (napi-rs).
-// MetaCall's embedded node.dll must re-export all napi_* symbols for this to work.
-// This test fails until MetaCall ships proper NAPI symbol re-export support.
-// Tracking issue: https://github.com/metacall/distributable-windows/issues/
-
+// https://github.com/metacall/core/pull/696
 const { rspackVersion } = require('@rspack/core');
 
 module.exports = {
